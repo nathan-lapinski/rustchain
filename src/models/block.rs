@@ -50,7 +50,7 @@ impl Block {
         let mut block_data = self.clone();
         block_data.hash = String::default();
         // block -> JSON
-        let serialiezed_block_data = serde_json::to_string(&block_data).unwrap();
+        let serialized_block_data = serde_json::to_string(&block_data).unwrap();
 
         let mut hasher = Sha256::new();
         hasher.update(serialized_block_data);
