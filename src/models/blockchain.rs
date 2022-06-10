@@ -18,6 +18,7 @@ impl Blockchain {
             proof_of_work: u64::default(),
             previous_hash: String::default(),
             hash: String::default(),
+            data: String::from("Genesis block"),
         };
 
         let mut chain = Vec::new();
@@ -32,14 +33,25 @@ impl Blockchain {
         blockchain
     }
 
-    pub fn add_block(&mut self) {
+    pub fn add_block(&mut self, data: String) {
         let mut new_block = Block::new(
             self.chain.len() as u64,
             self.chain[&self.chain.len() -1].hash.clone(),
+            data
         );
 
         new_block.mine(self.clone());
         self.chain.push(new_block.clone());
         println!("New block added to chain -> {:?}", new_block);
+    }
+
+    pub fn print(&mut self) {
+        for b in self.chain.iter() {
+            println!("------------------------------------");    
+            println!("Previous Hash: {}", b.previous_hash);    
+            println!("Data: {}", b.data);
+            println!("Hash: {}", b.hash);    
+            println!("------------------------------------");    
+        }
     }
 }

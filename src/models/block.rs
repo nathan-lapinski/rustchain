@@ -14,14 +14,17 @@ pub struct Block {
     pub proof_of_work: u64,
     pub previous_hash: String,
     // The current block's hash
-    pub hash: String
+    pub hash: String,
+    // Data for the current block: TODO: Make this actual transaction data
+    pub data: String,
 }
 
 impl Block {
     // creates a new block and sets the block hash
     pub fn new (
         index: u64,
-        previous_hash: String
+        previous_hash: String,
+        data: String
     ) -> Self {
         let block = Block {
             index,
@@ -29,6 +32,7 @@ impl Block {
             proof_of_work: u64::default(),
             previous_hash,
             hash: String::default(),
+            data,
         };
 
         block
