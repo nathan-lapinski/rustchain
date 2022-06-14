@@ -20,6 +20,7 @@ fn main() {
     blockchain.print();
     let mut block = models::block::Block::new(1, String::from(""), String::from("This is a test"));
     let pow = models::proof_of_work::ProofOfWork::new(block);
-    pow.run();
+    // pow.debug_test();
+    // pow.run();
 }
 
