@@ -1,6 +1,7 @@
 use chrono::prelude::*;
 use sha2::{Sha256, Digest};
 
+#[derive(Debug)]
 pub struct Block {
     timestamp: String,
     data: String,
