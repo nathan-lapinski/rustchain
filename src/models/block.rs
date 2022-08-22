@@ -11,12 +11,13 @@ pub struct Block {
 
 impl Block {
     pub fn new(data: String, previous_hash: String) -> Self {
-        let block = Block {
+        let mut block = Block {
             timestamp: Utc::now().timestamp_millis().to_string(),
             data: data,
             prev_block_hash: previous_hash,
             hash: String::default()
         };
+        block.set_hash();
         block
     }
     pub fn set_hash(&mut self) {
@@ -25,5 +26,8 @@ impl Block {
         hasher.update(vec);
         let result = hasher.finalize();
         self.hash = format!("{:x}",result);
+    }
+    pub fn get_hash(&self) -> &String {
+        &self.hash
     }
 }
