@@ -30,4 +30,13 @@ impl Block {
     pub fn get_hash(&self) -> &String {
         &self.hash
     }
+    pub fn get_prev_hash(&self) -> &String {
+        &self.prev_block_hash
+    }
+    pub fn get_timestamp(&self) -> &String {
+        &self.timestamp
+    }
+    pub fn get_data(&self) -> &String {
+        &self.data
+    }
 }

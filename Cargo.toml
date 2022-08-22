@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.22"
 sha2 = "0.10.2"
+num-bigint = "0.4.3"
+num-traits = "0.2.15"
