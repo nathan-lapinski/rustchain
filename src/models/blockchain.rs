@@ -15,9 +15,9 @@ impl Blockchain {
         let len = self.blocks.len();
         
         if len == 0 {
-            block = Block::new(data, String::from(""));
+            block = Block::new_block(data, String::from(""));
         } else {
-            block = Block::new(data, self.blocks[len-1].get_hash().to_string());
+            block = Block::new_block(data, self.blocks[len-1].get_hash().to_string());
         }
         self.blocks.push(block);
     }
